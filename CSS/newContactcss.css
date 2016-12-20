@@ -1,0 +1,325 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	padding-top: 50px;
+}
+p {
+	padding: 0px;
+	margin: 0px;
+}
+ul {
+	padding: 0px;
+	margin: 0px;
+}
+li {
+	padding: 0px;
+	margin: 0px;
+}
+.cmhtText h1, .cmhtText h2, .cmhtText h3, .cmhtText h4, .cmhtText h5, .cmhtText h6 {
+	padding: 0px;
+	margin: 0px;
+}
+ * {
+	box-sizing: border-box;
+}
+nav {
+	width: 100%;
+	height: 50px;
+	border-bottom: solid 1px #998100;
+	position: fixed;
+	z-index: 50;
+	top: 0px;
+	background-color: white;
+	-webkit-box-shadow: 0px 1px 9px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 1px 9px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 1px 9px 0px rgba(0,0,0,0.75);
+	padding-top: 5px;
+}
+nav ul {
+	padding-top: 5px;
+	text-align: center;
+}
+nav ul li {
+	display: inline-block;
+	padding-right: 20px;
+}
+
+nav ul li a {
+	color: #1db2a3;
+}
+.clear {
+	clear: both;;
+}
+.float {
+	float: left;
+}
+
+.logo a{
+	font-family: "Great Vibes", sans-serif;
+	font-size: 26px;
+	padding-right: 60px;
+	color: #1db2a3;
+	text-decoration: none;
+}
+.contactMainHeader {
+	width: 100%;
+	height: 200px;
+	background-color: #d3d3d3;
+	position: relative;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.contactMainHeaderText {
+	width: 300px;
+	margin-left: 200px;
+	background-color: #4F84A9;
+	height: 100%;
+	position: relative;
+}
+
+h1{
+	//border: solid 1px;
+	color: #1ec5b9;
+	text-align: center;
+	margin-top: 90px;
+}
+
+h3{
+	color: #12665C; /*dark teal*/
+	margin-bottom: 0;
+}
+
+h4{
+	color: #12665C;
+	font-weight: normal;
+	margin-bottom: 70px;
+}
+
+/*the rest of the google translate dropdown styling is in style.css*/
+#google_translate_element{
+	top: -45px;
+}
+
+#contact-section{
+	//border: solid red;
+	position: relative;
+	overflow: hidden;
+	height: auto;
+	margin: auto;
+	margin-bottom: 200px;
+	padding: 0 10% 0 10%;
+}
+
+#contact-section #contact-top{
+	border: solid #1ec5b9 1px;
+	width: 48%;
+	display: inline-block;
+	float: left;
+	padding: 25px;
+	margin-right: 3%;
+	background-color: rgb(245, 245, 245);
+}
+
+#contact-section #contact-top a{
+	text-decoration: none;
+}
+
+#contact-section #contact-bottom{
+	border: solid #1ec5b9 1px;
+	width: 48%;
+	display: inline-block;
+	float: left;
+	padding: 25px;
+	margin-right: 3%;
+	margin-top: 3%;
+	clear: left;
+	background-color: rgb(245, 245, 245);
+}
+
+#contact-section #contact-bottom i{
+	color: #1db2a3;
+}
+
+#contact-section #contact-bottom img{
+	height: 25px;
+	margin-right: 5px;
+}
+
+#contact-section #contact-right{
+	border: solid #1ec5b9 1px;
+	width: 49%;
+	float: right;
+	margin-bottom: -700px;
+	padding-bottom: 700px;
+	/*above two lines are hacks to make this floated div expand to parent height*/
+	//margin-bottom: -99999px;
+	//padding-bottom: 99999px;
+	/*above two lines were the original hacks to expand the div to parent height but the numbers are too big so the google map just showed up blank*/
+	position: relative;
+}
+
+#contact-section #contact-right iframe{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#bow-container{
+	border-top: solid 2px #12665C;
+	border-bottom: solid 2px #12665C;
+	height: 45px;
+	background-color: #1EC4B8;
+	text-align: center;
+}
+
+#bow-container img{
+	//border: solid 1px;
+	transform: translateY(-25%);
+	height: 200px;
+}
+
+#mc_embed_signup{ /*email list sign-up form container*/
+	//border: solid purple;
+	background-color: #BBEDEA; /*light teal (regular teal with 0.3 opacity)*/
+	text-align: center;
+	padding: 100px 0px 70px 0px;
+}
+
+.mc-field-group{
+	//border: solid 1px;
+	width: 90%;
+	max-width: 600px;
+	margin: auto;
+	margin-bottom: 70px;
+}
+
+.asterisk{
+	color: #B70000;
+	font-family: 'Arial', 'Helvetica', sans-serif;
+	font-size: 22px;
+}
+
+label{
+	//border: solid gold 1px;
+	font-size: 20px;
+	width: 20%;
+	vertical-align: bottom;
+	padding-right: 5px;
+}
+
+input{
+	border-radius: 3px;
+	width: 80%;
+	height: 30px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+}
+
+.button{
+	border: solid #1ec4b8;
+	background-color: #1ec4b8;
+	border-radius: 5px;
+	width: 300px;
+	color: white;
+	font-size: 22px;
+	height: auto;
+	cursor: pointer;
+	padding-bottom: 3px;
+	transition: 0.3s;
+}
+
+.button:hover{
+	border: solid #1db2a3;
+	background-color: #1db2a3;
+	transition: 0.3s;
+}
+
+/*following two selectors refer to the error message that appears when user doesn't input an email address. they are in the javascript (http://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js), not in the html. I had to do !important to override the styles since the the js is linked after these styles*/
+#mc_embed_signup input.mce_inline_error{
+	border: none !important;
+}
+
+#mc_embed_signup div.mce_inline_error{
+	margin: 0 !important;
+	background-color: transparent !important;
+	font-weight: normal !important;
+	color:#B70000 !important;
+}
+
+.bottomSection{
+	//background-image: url("Images/hydrangea-914828_1280_extended.jpg");
+	background-image: url("../Images/hydrangea-914828_1280_extended_blurred1.jpg");
+	//background-image: url("Images/hydrangea-914828_1280_extended_blurred2.jpg");
+}
+
+.bottomSection a{
+	border: solid #e06161 3px;
+	background-color: rgba(255, 255, 255, 0.6);
+	color: #e06161;
+}
+
+.bottomSection a:hover{
+	background-color: #e06161;
+	color: white;
+}
+.bottomSection{
+	//border: solid 1px violet;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	height: 650px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+}
+
+.bottomSection a{
+	//border: solid white 3px;
+	border-radius: 10px;
+	//background-color: rgba(0, 0, 0, 0.3);
+	font-family: "Great Vibes", sans-serif;
+	font-size: 40px;
+	//color: white;
+	text-decoration: none;
+	padding: 10px 50px 5px 50px;
+	margin: auto;
+	transition: 0.3s;
+}
+
+.bottomSection a:hover{
+	//background-color: white;
+	//color: #384019;
+	transition: 0.3s;
+}
+footer {
+	padding: 50px;
+	/*background-color: #f2f2f2;*/
+	background-color: #f9f9f9;
+}
+footer p {
+	padding-bottom: 5px;
+}
+.footerContact {
+	margin-right: 50px;
+	border-right: solid 1px lightgrey;
+	padding-right: 25px;
+}
+.footerinfo {
+	margin: 0 auto;
+}
+footer a {
+	text-decoration: none;
+}
+footer img {
+	height: 25px;
+	width: 25px;
+	background-color: lightgrey;
+	border-radius: 50px;
+}
+footer h3 {
+	margin-bottom: 30px;
+}
