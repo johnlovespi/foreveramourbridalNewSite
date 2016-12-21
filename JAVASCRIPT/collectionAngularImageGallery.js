@@ -38,26 +38,27 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 		if(self.setValueArrays === true) {
 			self.designersArray = new DesignerListFactory(CollectionArray);
 			self.designerList = self.designersArray.removeJude();
-			// for(var i = 0; i < self.designerList.length; i++){
-			// 	self.eachDesigner = self.designerList[i];
-			// 	if(i % 2 === 0){
-			// 		self.rightCss = {
-			// 			dropShadow: "right_class_box_shadow"
-			// 		}
-			// 		self.rightDesigner = self.eachDesigner;
-			// 		var right = angular.extend(self.rightDesigner, self.rightCss)
-			// 	} else {
-			// 		self.leftCss = {
-			// 			dropShadow: "left_class_box_shadow"
-			// 		}
-			// 		self.leftDesigner = self.eachDesigner;
-			// 		var left = angular.extend(self.leftDesigner, self.leftCss)
-			// 	}
-			// }
+			for(var i = 0; i < self.designerList.length; i++){
+				self.eachDesigner = self.designerList[i];
+				if(i % 2 === 0){
+					self.rightCss = {
+						dropShadow: "right_class_box_shadow"
+					}
+					self.rightDesigner = self.eachDesigner;
+					var right = angular.extend(self.rightDesigner, self.rightCss)
+				} else {
+					self.leftCss = {
+						dropShadow: "left_class_box_shadow"
+					}
+					self.leftDesigner = self.eachDesigner;
+					var left = angular.extend(self.leftDesigner, self.leftCss)
+				}
+			}
 			// console.log(self.designerList);
 
 		}
 	};
+
 	self.setArray();
    	// self.mainCollection = CollectionArray;
    	// self.justJude = JudeArray;
