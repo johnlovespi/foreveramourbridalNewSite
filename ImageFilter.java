@@ -41,5 +41,7 @@ public class ImageFilter
 	{
 		return styles;
 	}
-
-}
+	public String toString()
+	{
+		return "Styles: " +Arrays.toString(styles);
+	}	
