@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class ImageFilter 
 {
 	String img;
@@ -45,3 +46,4 @@ public class ImageFilter
 	{
 		return "Styles: " +Arrays.toString(styles);
 	}	
+}

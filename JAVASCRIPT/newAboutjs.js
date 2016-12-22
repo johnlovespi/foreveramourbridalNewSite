@@ -37,7 +37,7 @@ $(document).ready(function(){
 					for(var j = 0; j < reviewsArray.length; j++){
 						var eachReview = reviewsArray[j];
 						if($(eachReview).offset().top === eachOffset){
-							$(eachReview).toggleClass('show');
+							$(eachReview).addClass('show');
 						}// ends second if
 					}/// ends second for
 				}/// ends first if
