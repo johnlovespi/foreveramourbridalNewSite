@@ -29,7 +29,7 @@ public class ImageFilterManager
 	}
 	
 	
-	public void searchEmbeddedDesignerArray(String key, String style)
+	public void searchEmbeddedDesignerArray(String designerNameKey, String style)
 	{
 		
 		for(int i=0;i<images.size(); i++)
@@ -40,9 +40,9 @@ public class ImageFilterManager
 				int counter=0;
 				for(int j=0;j<imgtemp.length;j++)
 				{
-					if(key.equalsIgnoreCase(arraytemp[counter])
+					if(designerNameKey.equalsIgnoreCase(arraytemp[counter])
 					   {
-						   System.out.println("There was a match");
+						   System.out.println("There was a match.");
 						   System.out.println(arraytemp[counter]);
 						   break;
 					   }
