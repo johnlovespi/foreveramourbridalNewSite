@@ -17,7 +17,7 @@ public class ImageFilterManager
 
 	public ImageFilter searchByDesignerName(String designerName)
 	{
-		for(int i=0;i<ImageFilter.size(); i++)
+		for(int i=0;i<images.size(); i++)
 		{
 			if(images.get(i).getdesingerName().equalsIgnoreCase(designerName))
 			{
@@ -27,6 +27,33 @@ public class ImageFilterManager
 		}
 		return null;
 	}
+	
+	
+	public void searchEmbeddedDesignerArray(String key, String style)
+	{
+		
+		for(int i=0;i<images.size(); i++)
+		{
+			if(images.get(i).getdesingerName().equalsIgnoreCase(designerName))
+			{
+				String[] arraytemp = images.get(i).getStyle();
+				int counter=0;
+				for(int j=0;j<imgtemp.length;j++)
+				{
+					if(key.equalsIgnoreCase(arraytemp[counter])
+					   {
+						   System.out.println("There was a match");
+						   System.out.println(arraytemp[counter]);
+						   break;
+					   }
+					   else
+					   counter++;
+				}
+				//return images.get(i);
+			}
+			
+		}
+		//return null;
 
-
+	}
 }
