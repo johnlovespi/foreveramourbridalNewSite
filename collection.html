@@ -121,20 +121,18 @@
 			</div>
 
 			<div class="designers" ng-if="ctrl.mainHtml == true">
-				<div class="listOfDesigner">
-					<div id="des{{designer.name}}" class="imgGals" ng-repeat="designer in ctrl.designerList" ng-if="ctrl.mainHtml == true">
-						<div class="imgGalsInfoAndImg" ng-class="designer.dropShadow">
-							<!-- <div class="designerImage"> -->
-								<img ng-src="{{designer.mainImage}}">
-							<!-- </div> -->
-							<div class="imgGalInfo">
-								<h3 ng-bind="designer.name"></h3>
-								<!-- <p ng-bind="designer.description"></p> -->
-								<a href="#top" ng-click="ctrl.viewGallery(designer.name, ctrl.current_page, ctrl.notJude)" >View Gallery</a>
-							</div>
+				<div id="des{{designer.name}}" class="imgGals" ng-repeat="designer in ctrl.designerList" ng-if="ctrl.mainHtml == true">
+					<div class="imgGalsInfoAndImg" ng-class="designer.dropShadow">
+						<!-- <div class="designerImage"> -->
+							<img ng-src="{{designer.mainImage}}">
+						<!-- </div> -->
+						<div class="imgGalInfo">
+							<h3 ng-bind="designer.name"></h3>
+							<!-- <p ng-bind="designer.description"></p> -->
+							<a href="#top" ng-click="ctrl.viewGallery(designer.name, ctrl.current_page, ctrl.notJude)" >View Gallery</a>
 						</div>
-						<div class="clear"></div>
 					</div>
+					<div class="clear"></div>
 				</div>
 			</div>
 		</div><!-- end mainContainer -->
