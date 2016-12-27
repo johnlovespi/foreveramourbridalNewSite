@@ -33,7 +33,7 @@ $(document).ready(function(){
 
 			for(var i = 0; i < reviewsArrayOffset.length; i++){
 				var eachOffset = reviewsArrayOffset[i];
-				if($(window).scrollTop() > eachOffset - 400){
+				if($(window).scrollTop() > eachOffset - 500){
 					for(var j = 0; j < reviewsArray.length; j++){
 						var eachReview = reviewsArray[j];
 						if($(eachReview).offset().top === eachOffset){
