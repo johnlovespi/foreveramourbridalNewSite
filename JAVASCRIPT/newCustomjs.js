@@ -11,11 +11,11 @@ $(document).ready(function(){
 			left: ($('.contentContainer').width() - $('.content').outerWidth())/2,
 			// top: ($('.contentContainer').height() - $('.content').outerHeight())/2
 		});
-		$('.centerTop').css({
-			position:'absolute',
-			top: ($('.box').height() - $('.centerTop').outerHeight())/2,
-			// left: ($('.box').width() - $('.centerTop').outerWidth())/2,
 
+		$('.viewMore').css({
+			position:'absolute',
+			left: ($('.viewMoreContainer').width() - $('.viewMore').outerWidth())/2,
+			top: ($('.viewMoreContainer').height() - $('.viewMore').outerHeight())/2
 		});
 
 	});
@@ -24,8 +24,8 @@ $(document).ready(function(){
 	$(window).resize();
 
 	var contentHeight = $('.content').outerHeight();
-	var customExpHeight = $('.customExperience').outerHeight();
-	$('.infoContent').css('height', customExpHeight);
+	// var customExpHeight = $('.customExperience').outerHeight();
+	// $('.infoContent').css('height', customExpHeight);
 	$('.contentContainer').css('height', contentHeight);
 	var footerContact = $('.footerContact').outerWidth(true);
 	var footerSocialMedia = $('.footerSocialMedia').outerWidth(true);
