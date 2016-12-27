@@ -166,21 +166,6 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 70px;
 }
 
-.viewMore a {
-	font-size: 20px;
-	color: white;
-	border: 2px solid white;
-	border-radius: 5px;
-	text-decoration: none;
-	padding: 10px 50px;
-	border-radius: 5px;
-}
-.viewMore {
-	width: 400px;
-	margin: 0 auto;
-	margin-top: 100px;
-	margin-bottom: 100px;
-}
 .about p {
 	padding-right: 20px;
 	padding-bottom: 40px;
@@ -253,6 +238,26 @@ h1, h2, h3, h4, h5, h6 {
 .instaFooter a {
 	text-decoration: none;
 	color: rgba(23, 155, 137, 1);
+}
+.viewMoreContainer {
+	width: 80%;
+	margin: 0 auto;
+	height: 600px;
+	background-image: url(../Images/JudeBottomImg_FourthSize_Cropped.jpg);
+	position: relative;
+	margin-top: 50px;
+}
+.viewMore a {
+	font-size: 20px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 10px 50px;
+	border-radius: 5px;
+}
+.viewMore {
+	width: 400px;
 }
 .closeDesignerImageGallery {
     /*font-family: 'Playfair Display SC', serif;*/
