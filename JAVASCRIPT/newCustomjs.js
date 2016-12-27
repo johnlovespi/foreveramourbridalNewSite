@@ -12,6 +12,12 @@ $(document).ready(function(){
 			// top: ($('.contentContainer').height() - $('.content').outerHeight())/2
 		});
 
+		$('.viewMore').css({
+			position:'absolute',
+			left: ($('.viewMoreContainer').width() - $('.viewMore').outerWidth())/2,
+			top: ($('.viewMoreContainer').height() - $('.viewMore').outerHeight())/2
+		});
+
 	});
 
 	// To initially run the function:
