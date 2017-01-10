@@ -45,14 +45,38 @@ $(document).ready(function(){
 
 	});
 
+	function sliderfunction(){
 
-	// function showReviews(){
-	// 		var reviewsArray = $('.content').find('.review');
-	// 		console.log(reviewsArray);
-	// 		for(var i = 0; i < reviewsArray.length; i++){
-	// 			var eachReview = reviewsArray[i];
+		var animationSpeed = 1000;
+		var sliderSpeed = 3000;
+		var currentSlide = 1;
+		var sliderWrapper = $("#imgSliderWrapper");
+		var sliderContainer = sliderWrapper.find(".imgSliderContainer");
+		var slides = sliderContainer.find(".slides");
+		var sliderWidth = slides.width();
+		var sliderInterval;
+		sliderContainer.css("width", slides.length * slides.width());
 
-	// 		}
-	// }
-	// showReviews();
+		function imgSlider(){
+			var sliderInterval = setInterval(function(){
+					console.log(currentSlide);
+					sliderContainer.animate({"margin-left": "-=" + sliderWidth}, animationSpeed, function(){
+							currentSlide = currentSlide + 1;
+							if(currentSlide === slides.length){
+								currentSlide = 1;
+								console.log(currentSlide);
+								sliderContainer.css("margin-left", 0);
+							}/// ends first if
+
+					});/// ends sliderContainer animate function
+
+			}, sliderSpeed);///ends sliderInterval
+
+		}/// ends imgSlider
+
+		imgSlider();
+	}
+
+	sliderfunction();
+
 });

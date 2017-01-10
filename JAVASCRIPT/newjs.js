@@ -1,15 +1,19 @@
 $(document).ready(function(){
+	$("body").css("overflow-y", "hidden");
 	var height = $(window).height();
 	var width = $(window).width();
+	$(window).on('load', function(){
+		$(this).scrollTop(0);
+	})
+	$(document).on('load', function(){
+		$(this).scrollTop(0);
+	})
 	$(window).on('load resize', function(){
 
-		$(this).scrollTop(0);
-
-		$('.content').css({
-			position:'absolute',
-			left: ($('.contentContainer').width() - $('.content').outerWidth())/2,
-			// top: ($('.contentContainer').height() - $('.content').outerHeight())/2
-		});
+		// $('.content').css({
+		// 	position:'absolute',
+		// 	left: ($('.contentContainer').width() - $('.content').outerWidth())/2,
+		// });
 
 		$('.centerTop').css({
 			position:'absolute',
@@ -22,14 +26,17 @@ $(document).ready(function(){
 
 	// To initially run the function:
 	$(window).resize();
-
-	var contentHeight = $('.content').outerHeight();
+	var contentContainer = $(".contentContainer");
+	var contents = contentContainer.find(".content")
+	var contentHeight = contents.height() * contents.length;
 	$('.contentContainer').css('height', contentHeight);
 
-
-	$('.instaHeader').click(function(){
-		$(".slideImg").animate({left: '250px'});
+	contents.each(function(index){
+		var height = this.height;
+		$(this).css("top", (height * index) + 50);
 	})
+
+
 	var footerContact = $('.footerContact').outerWidth(true);
 	var footerSocialMedia = $('.footerSocialMedia').outerWidth(true);
 	$('.footerinfo').css('width', footerContact + footerSocialMedia + 1);
@@ -48,5 +55,14 @@ $(document).ready(function(){
  //        	}, 800);
  //    	}
  //    });
+
+ $(".homeStart").click(function(event){
+ 		event.preventDefault();
+        $("html, body").animate({
+            scrollTop: $(".contentOne").offset().top
+        }, 800);
+
+        $(this).fadeOut(1000);
+ })
 
 });

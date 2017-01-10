@@ -150,40 +150,51 @@ h1, h2, h3, h4, h5, h6 {
 	background-size: cover;
     background-color: rgba(188, 241, 234, 1);
 	text-align: top;
-	padding-right: 20px;
-	padding-left: 20px;
+	padding: 10px;
+	overflow: hidden;
+
+}
+#imgSliderWrapper {
+	width: 570px;
+	height: 400px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#imgSliderWrapper .imgSliderContainer {
+	display: block;
+	height: 400px;
+	padding: 0px;
+	margin: 0px;
+}
+.imgSliderContainer .slides {
+	float: left;
+	list-style-type: none;
+	width: 570px;
+	height: 400px;
+}
+.slides img {
+	width: 570px;
+	height: 400px
 }
 .instaHeader p {
 	float: left;
 	padding-bottom: 10px;
 	color: rgba(23, 155, 137, 1);
+/*	padding-left: 10px;
+	padding-top: 10px;*/
 
 }
 .instaHeader img {
 	width: 20px;
 	height: 20px;
 	padding: 0px;
+/*	margin-top: 10px;
+	margin-right: 10px;*/
 	float: right;
 	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
-.instaImages {
-	width: 100%;
-	height: 400px;
-	margin: 0 auto;
-}
-.instaAndText {
-	width: 100%;
-	height: 100%;
-	position: relative;
-}
-.instaAndText img {
-	width: 100%;
-	height: 100%;
-}
-.slideImg {
-	position: absolute;
-}
+
 .instaText {
 	width: 100%;
 	height: 50px;
@@ -232,3 +243,4 @@ footer img {
 footer h3 {
 	margin-bottom: 30px;
 }
+
