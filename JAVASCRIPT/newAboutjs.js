@@ -1,12 +1,11 @@
 $(document).ready(function(){
 	$(window).on('load resize', function(){
 
-		$('.centerTop').css({
-			position:'absolute',
-			top: ($('.box').height() - $('.centerTop').outerHeight())/2,
-			// left: ($('.box').width() - $('.centerTop').outerWidth())/2,
+		// $('.centerTop').css({
+		// 	position:'absolute',
+		// 	top: ($('.box').height() - $('.centerTop').outerHeight())/2,
 
-		});
+		// });
 	});
 
 	// To initially run the function:
@@ -37,7 +36,7 @@ $(document).ready(function(){
 					for(var j = 0; j < reviewsArray.length; j++){
 						var eachReview = reviewsArray[j];
 						if($(eachReview).offset().top === eachOffset){
-							$(eachReview).addClass('show');
+							$(eachReview).animate({opacity: 1}, 2000);
 						}// ends second if
 					}/// ends second for
 				}/// ends first if
