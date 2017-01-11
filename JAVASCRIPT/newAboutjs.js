@@ -1,12 +1,11 @@
 $(document).ready(function(){
 	$(window).on('load resize', function(){
 
-		$('.centerTop').css({
-			position:'absolute',
-			top: ($('.box').height() - $('.centerTop').outerHeight())/2,
-			// left: ($('.box').width() - $('.centerTop').outerWidth())/2,
+		// $('.centerTop').css({
+		// 	position:'absolute',
+		// 	top: ($('.box').height() - $('.centerTop').outerHeight())/2,
 
-		});
+		// });
 	});
 
 	// To initially run the function:
@@ -37,7 +36,7 @@ $(document).ready(function(){
 					for(var j = 0; j < reviewsArray.length; j++){
 						var eachReview = reviewsArray[j];
 						if($(eachReview).offset().top === eachOffset){
-							$(eachReview).addClass('show');
+							$(eachReview).animate({opacity: 1}, 2000);
 						}// ends second if
 					}/// ends second for
 				}/// ends first if
@@ -45,14 +44,38 @@ $(document).ready(function(){
 
 	});
 
+	function sliderfunction(){
 
-	// function showReviews(){
-	// 		var reviewsArray = $('.content').find('.review');
-	// 		console.log(reviewsArray);
-	// 		for(var i = 0; i < reviewsArray.length; i++){
-	// 			var eachReview = reviewsArray[i];
+		var animationSpeed = 1000;
+		var sliderSpeed = 3000;
+		var currentSlide = 1;
+		var sliderWrapper = $("#imgSliderWrapper");
+		var sliderContainer = sliderWrapper.find(".imgSliderContainer");
+		var slides = sliderContainer.find(".slides");
+		var sliderWidth = slides.width();
+		var sliderInterval;
+		sliderContainer.css("width", slides.length * slides.width());
 
-	// 		}
-	// }
-	// showReviews();
+		function imgSlider(){
+			var sliderInterval = setInterval(function(){
+					console.log(currentSlide);
+					sliderContainer.animate({"margin-left": "-=" + sliderWidth}, animationSpeed, function(){
+							currentSlide = currentSlide + 1;
+							if(currentSlide === slides.length){
+								currentSlide = 1;
+								console.log(currentSlide);
+								sliderContainer.css("margin-left", 0);
+							}/// ends first if
+
+					});/// ends sliderContainer animate function
+
+			}, sliderSpeed);///ends sliderInterval
+
+		}/// ends imgSlider
+
+		imgSlider();
+	}
+
+	sliderfunction();
+
 });

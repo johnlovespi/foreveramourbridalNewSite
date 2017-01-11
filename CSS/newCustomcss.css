@@ -184,8 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: top;
 	background-color: rgba(188, 241, 234, 1);
 	text-align: top;
-	padding-right: 20px;
-	padding-left: 20px;
+	padding: 10px;
 }
 .instaHeader p {
 	float: left;
@@ -202,22 +201,27 @@ h1, h2, h3, h4, h5, h6 {
     filter: grayscale(100%);
     margin-bottom: 5px;
 }
-.instaImages {
-	width: 100%;
+#imgSliderWrapper {
+	width: 570px;
 	height: 400px;
+	overflow: hidden;
 	margin: 0 auto;
 }
-.instaAndText {
-	width: 100%;
-	height: 100%;
-	position: relative;
+#imgSliderWrapper .imgSliderContainer {
+	display: block;
+	height: 400px;
+	padding: 0px;
+	margin: 0px;
 }
-.instaAndText img {
-	width: 100%;
-	height: 100%;
+.imgSliderContainer .slides {
+	float: left;
+	list-style-type: none;
+	width: 570px;
+	height: 400px;
 }
-.slideImg {
-	position: absolute;
+.slides img {
+	width: 100%;
+	height: 400px
 }
 .instaText {
 	width: 100%;
