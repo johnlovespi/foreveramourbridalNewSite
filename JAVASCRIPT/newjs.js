@@ -2,8 +2,6 @@
 $(document).ready(function(){
 	var height = $(window).height();
 	var width = $(window).width();
-	$("body").css("overflow-y", "hidden");
-	$("html,body").animate({scrollTop: 0}, 100); //100ms for example
 
 	// window.onload = function() {
 	//  setTimeout (function () {
@@ -16,7 +14,11 @@ $(document).ready(function(){
 	// });
 
 
-	$(window).on('load resize', function(){
+	$(window).on('load resize touchstart touchmove', function(e){
+		e.preventDefault();
+		$("body").css("overflow-y", "hidden");
+		$("html,body").animate({scrollTop: 0}, 100); 
+
 		// $('.homeStart div p').css({
 		// 	position:'absolute',
 		// 	top: ($('.homeStart div').height() - $('.homeStart div p').outerHeight())/2,
@@ -45,13 +47,12 @@ $(document).ready(function(){
 
 	 $(".homeStart").click(function(event){
 	 		event.preventDefault();
+	 		$(this).css("display", "none");
+	        $(".logo").css("display", "none");
+	        $(".badgesContainer").css("display", "none");
 	        $("body").animate({
 	            scrollTop: $(".contentOne").offset().top
 	        }, 800);
-
-	        $(this).fadeOut(1000);
-	        $(".logo").fadeOut(1000);
-	        $(".badgesContainer").fadeOut(1000);
 	 })
 
   	$(".oneArrow").click(function(event){
