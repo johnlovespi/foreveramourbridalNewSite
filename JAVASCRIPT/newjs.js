@@ -14,7 +14,7 @@ $(document).ready(function(){
 	// });
 
 
-	$(window).on('load resize touchstart touchmove', function(e){
+	$(window).on('load resize', function(e){
 		e.preventDefault();
 		$("body").css("overflow-y", "hidden");
 		$("html,body").animate({scrollTop: 0}, 100); 
