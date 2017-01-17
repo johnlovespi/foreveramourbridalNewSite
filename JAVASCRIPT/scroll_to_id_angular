@@ -1,0 +1,17 @@
+	self.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+   	}
+
+	self.scrollToDesigner = function() {
+     var newHash = "des" + self.designerId;
+      if ($location.hash() !== newHash) {
+        // set the $location.hash to `newHash` and
+        // $anchorScroll will automatically scroll to it
+        $location.hash("des" + self.designerId);
+      } else {
+        // call $anchorScroll() explicitly,
+        // since $location.hash hasn't changed
+        $anchorScroll();
+      }
+   	}

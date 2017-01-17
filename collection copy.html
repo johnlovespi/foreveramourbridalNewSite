@@ -90,6 +90,11 @@
 					<ul class="designerSliderContainer">
 						<li class="designerSlides" ng-repeat="designer in ctrl.designerList">
 							<img src="{{designer.mainImage}}">
+							<div class="aboutDesigner">
+								<h1 ng-bind="designer.name"></h1>
+								<p ng-bind="designer.description"></p>
+								<a href="" ng-click="ctrl.viewGallery(designer.name, ctrl.current_page, ctrl.notJude)"> View Gallery</a>
+							</div>
 						</li>
 					</ul>
 					<div class="clear"></div>

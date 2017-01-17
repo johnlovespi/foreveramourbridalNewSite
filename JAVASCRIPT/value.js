@@ -1620,7 +1620,7 @@ angular.module('DesignerValue', [])
 							},
 						]
 					},
-										{
+					{
 						img: "Images/Collection_large/NewJudeGowns/GRETAback_edited.jpg",
 						designerName: "",
 						style: [
@@ -1636,16 +1636,23 @@ angular.module('DesignerValue', [])
 						]
 					},
 				]
-			}
+			},
+			{
+				name: "Eddy k",
+				description: "Designed in Milan, the fashion capital of the world, and manufactured with the highest quality fabrics. Sophisticated couture gowns and elegant destination dresses are made with the highest attention to detail that flatters every figure, taste, and occasion.",
+				mainImage: "Images/Collection_large/AK160_full.jpg",
+				
+
+			},
 		])
 
-.value('StylesArray', [
-		"mermaid", 
-		"ball gown", 
-		"a-line", 
-		"trumpet", 
-		"fit anf flare", 
-		"sheath", 
-		"on sale"
+.value('designersNameArray', [
+		"Eddy K", 
+		"Justin Alexander", 
+		"Nicole Spose", 
+		"Venus", 
+		"Rosa Clará", 
+		"Additional Designers"
 	])
+
 })();

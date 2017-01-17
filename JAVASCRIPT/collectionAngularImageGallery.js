@@ -3,7 +3,7 @@
 
 angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 
-.controller("CollectionImageGalleryController", function(DesignerListFactory, $location, $anchorScroll, PaginateDesigner, CollectionArray, StylesArray) {
+.controller("CollectionImageGalleryController", function(DesignerListFactory, $location, $anchorScroll, PaginateDesigner, CollectionArray, designersNameArray) {
 
 	var self = this;
 	self.scrollTo = function(id) {
@@ -25,12 +25,7 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
    	}
 
    	self.styles;
-   	self.filterArray = function(filterOne, filterTwo) {
-   		self.stylesArray = new DesignerListFactory(CollectionArray);
-   		self.styleDresses = self.stylesArray.filterImages();
-   	}
-   	self.filterArray();
-   	self.styles = StylesArray;
+   	self.designerNames = designersNameArray
    	self.setValueArrays = true;
    	self.designerList;
    	self.designersArray;
@@ -38,22 +33,6 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 		if(self.setValueArrays === true) {
 			self.designersArray = new DesignerListFactory(CollectionArray);
 			self.designerList = self.designersArray.removeJude();
-			for(var i = 0; i < self.designerList.length; i++){
-				self.eachDesigner = self.designerList[i];
-				if(i % 2 === 0){
-					self.rightCss = {
-						dropShadow: "right_class_box_shadow"
-					}
-					self.rightDesigner = self.eachDesigner;
-					var right = angular.extend(self.rightDesigner, self.rightCss)
-				} else {
-					self.leftCss = {
-						dropShadow: "left_class_box_shadow"
-					}
-					self.leftDesigner = self.eachDesigner;
-					var left = angular.extend(self.leftDesigner, self.leftCss)
-				}
-			}
 			// console.log(self.designerList);
 
 		}
@@ -77,12 +56,15 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 	self.notJude = false;
 	self.yesJude = true;
 	self.designerName = "Jude Jowilson";
+	self.galleryDesignerName;
 	self.viewGallery = function(designer, page, judeOrNot) {
 			if(judeOrNot) {
 				self.setValueArrays = false;
 				self.designersArray = new DesignerListFactory(CollectionArray);
 				self.designerList = self.designersArray.justJude();
 			}
+		self.galleryDesignerName = designer;
+		console.log(self.galleryDesignerName);
 		self.designerFullImages = self.designersArray.viewDesignerGallery(designer);
 		self.designerImages = PaginateDesigner.PaginateDesignerFunction(designer, page);
 		self.paged = page;
@@ -91,10 +73,8 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 		self.imageToBeViewed = true;
 		self.mainHtml = false;
 		self.designerId = designer;
-		self.scrollTo();
-		// console.log(self.designerList);
-
 	};
+
 	self.closeDesignerImageGallery = function(designer) {
 		self.mainHtml = true;
 		self.imageToBeViewed = false;
@@ -104,16 +84,16 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 		self.numPages;
 	   	self.scrollToDesigner();
 	};
+
 	self.viewLargeImage = function(image) {
 		self.selectedImage = image;
 		self.imageToBeViewed = false;
 		self.clickedThumbNail = true;
-		self.scrollTo();
 	}
+
 	self.closeDesignerImageGallerySelectedImage = function() {
 		self.clickedThumbNail = false;
 		self.imageToBeViewed = true;
-		self.scrollTo();
 	}
 
 	self.prevPage = function(designer, array) {
@@ -121,7 +101,6 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 	    if (self.current_page > 1) {
 	        self.current_page--;
 	        self.designerImages = PaginateDesigner.PaginateDesignerFunction(designer, self.current_page, array);
-	        self.scrollTo();
 	    }
 	}
 
@@ -130,7 +109,6 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 	    if (self.current_page < self.numPages) {
 	        self.current_page++;
 	        self.designerImages = PaginateDesigner.PaginateDesignerFunction(designer, self.current_page, array);
-	        self.scrollTo();
 	    }
 	}
 
