@@ -21,28 +21,32 @@ $(document).ready(function(){
 
 	// });
 
-	$(window).scroll(function(){
-			var reviewsArrayOffset = [];
-			var reviewsArray = [];
-			$(".review").each(function(index){
-				var reviewsOffSet = $(this).offset().top;
-				reviewsArray.push(this);
-				reviewsArrayOffset.push(reviewsOffSet);
-			});
+	// $(window).scroll(function(){
+	// 		var reviewsArrayOffset = [];
+	// 		var reviewsArray = [];
+	// 		$(".review").each(function(index){
+	// 			var reviewsOffSet = $(this).offset().top;
+	// 			reviewsArray.push(this);
+	// 			reviewsArrayOffset.push(reviewsOffSet);
+	// 		});
 
-			for(var i = 0; i < reviewsArrayOffset.length; i++){
-				var eachOffset = reviewsArrayOffset[i];
-				if($(window).scrollTop() > eachOffset - 500){
-					for(var j = 0; j < reviewsArray.length; j++){
-						var eachReview = reviewsArray[j];
-						if($(eachReview).offset().top === eachOffset){
-							$(eachReview).animate({opacity: 1}, 2000);
-						}// ends second if
-					}/// ends second for
-				}/// ends first if
-			}//// ends for
+	// 		for(var i = 0; i < reviewsArrayOffset.length; i++){
+	// 			var eachOffset = reviewsArrayOffset[i];
+	// 			if($(window).scrollTop() > eachOffset - 500){
+	// 				for(var j = 0; j < reviewsArray.length; j++){
+	// 					var eachReview = reviewsArray[j];
+	// 					if($(eachReview).offset().top === eachOffset){
+	// 						$(eachReview).animate({opacity: 1}, 2000);
+	// 					}
+	// 				}
+	// 			}
+	// 		}
 
-	});
+	// });
+
+	var navUl = $("nav ul");
+	var navLi = $("nav ul li");
+	navLi.css("width", navUl.width() / 7);
 
 	function sliderfunction(){
 

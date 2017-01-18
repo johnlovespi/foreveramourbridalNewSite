@@ -14,10 +14,11 @@ $(document).ready(function(){
 	// });
 
 
-	$(window).on('load resize', function(e){
+	$(window).on('load', function(e){
 		e.preventDefault();
 		// $("body").css("overflow-y", "hidden");
 		$("html,body").animate({scrollTop: 0}, 100); 
+		console.log("hey");
 
 		// $('.homeStart div p').css({
 		// 	position:'absolute',
@@ -26,9 +27,9 @@ $(document).ready(function(){
 
 		// });
 	});
-
-	// To initially run the function:
-	$(window).resize();
+	var navUl = $("nav ul");
+	var navLi = $("nav ul li");
+	navLi.css("width", navUl.width() / 7);
 	var contentContainer = $(".contentContainer");
 	var contents = contentContainer.find(".content")
 	var contentHeight = contents.height() * contents.length;
@@ -40,11 +41,9 @@ $(document).ready(function(){
 	})
 
 	var reviews = $(".review");
-	console.log(reviews);
-
 	reviews.each(function(){
-		var theHeights = $(this).find(".forHeight");
-		console.log(theHeights.height());
+		var text = $(this).find(".reviewText");
+		$(this).css("height", text.height() + 20);
 	})
 
 
