@@ -10,8 +10,9 @@ $(document).ready(function(){
 
 	});
 
-	// To initially run the function:
-	$(window).resize();
+	var navUl = $("nav ul");
+	var navLi = $("nav ul li");
+	navLi.css("width", navUl.width() / 7);
 
 	var footerContact = $('.footerContact').outerWidth(true);
 	var footerSocialMedia = $('.footerSocialMedia').outerWidth(true);

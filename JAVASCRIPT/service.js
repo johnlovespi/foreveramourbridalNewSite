@@ -17,7 +17,32 @@ angular.module('DesignerService', ['DesignerValue'])
 				this.filterImagesArray.push(this.designersGallery);
 			}
 		}
-		// console.log(this.filterImagesArray);
+	};
+
+	DesignerListFactory.prototype.onlyExclusive = function(){
+		this.exclusive = [];
+		for(var i = 0; i < this.designerArray.length; i ++){
+			this.designer = this.designerArray[i];
+			if(this.designer.featureOrExclusive === "exclusive") {
+				this.isExclusive = this.designer;
+				this.exclusive.push(this.isExclusive);
+			}
+		}
+		this.exclusiveArray = this.exclusive;
+		return this.exclusiveArray;
+	};
+
+	DesignerListFactory.prototype.onlyFeature = function(){
+		this.feature = [];
+		for(var i = 0; i < this.designerArray.length; i ++){
+			this.designer = this.designerArray[i];
+			if(this.designer.featureOrExclusive === "feature") {
+				this.isFeature = this.designer;
+				this.feature.push(this.isFeature);
+			}
+		}
+		this.featureArray = this.feature;
+		return this.featureArray;
 	};
 
 	DesignerListFactory.prototype.removeJude = function(){
@@ -67,11 +92,12 @@ angular.module('DesignerService', ['DesignerValue'])
 	self.PaginateDesignerFunction = function(designer, page){
 		self.designerPaginateArray = [];
 		self.designerList = new DesignerListFactory(CollectionArray);
-		self.designerImages = self.designerList.viewDesignerGallery(designer, page);
+		self.designerImages = self.designerList.viewDesignerGallery(designer);
 		self.records_per_page = 9;
 		for (var i = (page-1) * self.records_per_page; i < (page * self.records_per_page) && i < self.designerImages.length; i++) {
 			self.designerPaginateArray.push(self.designerImages[i]);
     	}
+    	console.log(self.designerPaginateArray);
   		return self.designerPaginateArray;
 	}
 

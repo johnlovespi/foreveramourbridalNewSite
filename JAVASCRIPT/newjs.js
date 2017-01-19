@@ -2,6 +2,12 @@
 $(document).ready(function(){
 	var height = $(window).height();
 	var width = $(window).width();
+	var badgesDiv = $(".contentBadge");
+	var badges = badgesDiv.find(".badges");
+	var badgesHeight = badgesDiv.outerHeight();
+	var badgeOffSetTop = badgesDiv.offset().top;
+	var scrollPage = true;
+	$("body").css("overflow-y", "auto");
 
 	// window.onload = function() {
 	//  setTimeout (function () {
@@ -17,8 +23,11 @@ $(document).ready(function(){
 	$(window).on('load', function(e){
 		e.preventDefault();
 		// $("body").css("overflow-y", "hidden");
+		$("body").css("overflow-y", "auto");
 		$("html,body").animate({scrollTop: 0}, 100); 
-		console.log("hey");
+		$(badgesDiv).css("height", badgesHeight);
+		$(badges).css("width", "0%");
+
 
 		// $('.homeStart div p').css({
 		// 	position:'absolute',
@@ -47,6 +56,22 @@ $(document).ready(function(){
 	})
 
 
+	$(window).on("scroll", function() {
 
+		if($(window).scrollTop() >= badgeOffSetTop -100){
+			function stopStartScroll(){
+				if(scrollPage) {
+					$("body").css("overflow-y", "hidden");
+				} else if (scrollPage === false) {
+					$("body").css("overflow-y", "auto");
+				}
+			};
+			stopStartScroll();
+			 $(badges).animate({width: "15%",opacity: 1}, 1000, function(){
+			 	scrollPage = false;
+			 	stopStartScroll();
+			 });
+		}
+	});
 
 });

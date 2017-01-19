@@ -60,15 +60,21 @@
 <body ng-app="CollectionImageGallery">
 	<div ng-controller="CollectionImageGalleryController as ctrl">
 		<nav>
-			<ul>
-				<li class="logo"><a href="index.html">Forever Amour Bridal</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="collection.html">Collection</a></li>
+			<div class="logoNav">
+				<p><a href="index.html">Forever Amour Bridal Boutique</a></p>
+			</div>
+			<ul class="float">
+				<li><a href="index.html">Home</a></li>
+				<li class="currentPage"><a href="collection.html">Collection</a></li>
 				<li><a href="custom.html">Custom Made</a></li>
 				<li><a href="contact.html">Contact</a></li>
+				<li><a href="about.html">About</a></li>
 				<li><a href="">Our Guide Step</a></li>
-				<li><a href="appointment.html">Make An Appointment</a></li>
 			</ul>
+			<div class="appointment floatRight">
+				<p><a href="appointment.html">Make An Appointment</a></p>
+			</div>
+			<div class="clear"></div>
 		</nav>
 		<div class="collectionMainHeader">
 <!-- 			<div id="google_translate_element" ng-if="ctrl.mainHtml == true"></div><script type="text/javascript">
@@ -85,20 +91,74 @@
 		</div>
 
 		<div class="mainContainer">
+		<!-- 
 
-			<div class="designersWrapper">
+		FEATURE 
+
+		-->
+			<div class="designersWrapper feature">
 					<ul class="designerSliderContainer">
-						<li class="designerSlides" ng-repeat="designer in ctrl.designerList">
+						<li class="designerSlides" ng-repeat="designer in ctrl.featureDesignerList">
+							<div class="aboutDesigner">
+								<h1 ng-bind="designer.name"></h1>
+								<p ng-bind="designer.description"></p>
+								<a href="" ng-click="ctrl.viewGallery(designer.name, ctrl.current_page, ctrl.featureSelected)">View Gallery</a>
+							</div>
 							<img src="{{designer.mainImage}}">
 						</li>
 					</ul>
 					<div class="clear"></div>
 			</div>
 
-			<div class="designerNameList">
+			<div class="featureNameList">
 					<ul class="designerNamesArray">
-						<li class="designer" ng-repeat="desNames in ctrl.designerNames">
-							<a id="theDesigners" href="#" ng-bind="desNames" ng-click="ctrl.viewGallery(desNames, ctrl.current_page, ctrl.notJude)"></a>
+						<li class="designer" ng-repeat="desNames in ctrl.featureDesignerNames">
+							<a id="theDesigners" href="#" ng-bind="desNames" ng-click="ctrl.viewGallery(desNames, ctrl.feature_page, ctrl.featureSelected)"></a>
+						</li>
+					</ul>
+			</div>
+			
+			<div id="viewImagesInGallery" ng-if="ctrl.viewFeatured == true">
+				<div class="designerNameForGallery">
+					<p ng-bind="ctrl.featureDesignerName"></p>
+				</div>
+				<div ng-repeat="images in ctrl.featureImages track by $index" class="designerImageGallery">
+						<p class="designerImageGalleryName" ng-bind="images.designerName"></p>
+						<img ng-src="{{images.img}}" ng-click="ctrl.viewLargeImage(images.img)">
+				</div>
+				<div class="clear"></div>
+
+				<div class="pages">
+					<p>Current Page: <span ng-bind="ctrl.feature_page"></span><span>/</span><span ng-bind="ctrl.featurePages"></span></p>
+					<p ng-click="ctrl.prevPage(ctrl.featureSelected, ctrl.featureDesigner)" ng-if="ctrl.feature_page > 1"> Previous </p>
+					<p ng-click="ctrl.nextPage(ctrl.featureSelected, ctrl.featureDesigner)" ng-if="ctrl.feature_page < ctrl.featurePages">  Next</p>
+				</div>
+			</div>
+
+			<!-- 
+
+			EXCLUSIVE 
+
+			-->
+
+			<div class="designersWrapper exclusive">
+					<ul class="designerSliderContainer">
+						<li class="designerSlides" ng-repeat="designer in ctrl.exclusiveDesignerList">
+							<div class="aboutDesigner">
+								<h1 ng-bind="designer.name"></h1>
+								<p ng-bind="designer.description"></p>
+								<a href="" ng-click="ctrl.viewGallery(designer.name, ctrl.current_page, ctrl.exclusiveSelected)">View Gallery</a>
+							</div>
+							<img src="{{designer.mainImage}}">
+						</li>
+					</ul>
+					<div class="clear"></div>
+			</div>
+
+			<div class="exclusiveNameList">
+					<ul class="designerNamesArray">
+						<li class="designer" ng-repeat="desNames in ctrl.exclusiveDesignerNames">
+							<a id="theDesigners" href="#" ng-bind="desNames" ng-click="ctrl.viewGallery(desNames, ctrl.exclusive_page, ctrl.exclusiveSelected)"></a>
 						</li>
 					</ul>
 			</div>
@@ -113,20 +173,20 @@
 				</div>
 			</div>
 
-			<div id="viewImagesInGallery" ng-if="ctrl.imageToBeViewed == true">
+			<div id="viewImagesInGallery" ng-if="ctrl.viewExclusive == true">
 				<div class="designerNameForGallery">
-					<p ng-bind="ctrl.galleryDesignerName"></p>
+					<p ng-bind="ctrl.exclusiveDesignerName"></p>
 				</div>
-				<div ng-repeat="images in ctrl.designerImages track by $index" class="designerImageGallery">
+				<div ng-repeat="images in ctrl.exclusiveImages track by $index" class="designerImageGallery">
 						<p class="designerImageGalleryName" ng-bind="images.designerName"></p>
 						<img ng-src="{{images.img}}" ng-click="ctrl.viewLargeImage(images.img)">
 				</div>
 				<div class="clear"></div>
 
 				<div class="pages">
-					<p>Current Page: <span ng-bind="ctrl.current_page"></span><span>/</span><span ng-bind="ctrl.numPages"></span></p>
-					<p ng-click="ctrl.prevPage(ctrl.currentDesigner)" ng-if="ctrl.current_page > 1"> Previous </p>
-					<p ng-click="ctrl.nextPage(ctrl.currentDesigner)" ng-if="ctrl.current_page < ctrl.numPages">  Next</p>
+					<p>Current Page: <span ng-bind="ctrl.exclusive_page"></span><span>/</span><span ng-bind="ctrl.exclusivePages"></span></p>
+					<p ng-click="ctrl.prevPage(ctrl.exclusiveSelected, ctrl.exclusiveDesigner)" ng-if="ctrl.exclusive_page > 1"> Previous </p>
+					<p ng-click="ctrl.nextPage(ctrl.exclusiveSelected, ctrl.exclusiveDesigner)" ng-if="ctrl.exclusive_page < ctrl.exclusivePages">  Next</p>
 				</div>
 			</div>
 		</div><!-- end mainContainer -->

@@ -181,23 +181,32 @@ nav ul li a {
 	z-index: 2;
 	padding: 0px;
 	margin: 0px;
+}
+.contentPromo, .contentBadge {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0px;
+	padding-top: 70px;
+	margin: 0px;
+	margin: 0 auto;
+	padding-bottom: 50px;
 	background-color: white;
+	text-align: center;
+
 }
-.content {
-	width: 70%;
-	padding: 0px;
-	padding-top: 70px;
-	margin: 0px;
-	margin: 0 auto;
-	padding-bottom: 50px;
+
+.contentBadge {
+	background-color: transparent;
 }
+
 .contentReview {
-	width: 90%;
+	width: 100%;
 	padding: 0px;
 	padding-top: 70px;
 	margin: 0px;
 	margin: 0 auto;
 	padding-bottom: 50px;
+	background-color: white;
 }
 
 .box {
@@ -261,13 +270,15 @@ nav ul li a {
 .badgesContainer {
 	text-align: center;
 	width: 100%;
+	background-color: transparent;
 }
 
 .badges {
-	width: 20%;
-	height: 150px;
-	margin-bottom: 50px;
+	width: 15%;
+	margin-bottom: 80px;
+	margin-top: 80px; 
 	margin-right: 50px;
+	opacity: 0;
 }
 .promoContent {
 	width: 800px;
@@ -323,6 +334,8 @@ nav ul li a {
 	color: #ef8e89;
 	font-family: "Great Vibes", sans-serif;
 	font-size: 60px;
+	background-color:  #c2f8ff;
+	padding: 10px;
 }
 .review {
 	margin: 0 auto;

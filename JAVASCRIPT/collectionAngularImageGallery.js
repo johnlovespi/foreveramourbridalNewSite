@@ -3,7 +3,7 @@
 
 angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 
-.controller("CollectionImageGalleryController", function(DesignerListFactory, $location, $anchorScroll, PaginateDesigner, CollectionArray, designersNameArray) {
+.controller("CollectionImageGalleryController", function(DesignerListFactory, $location, $anchorScroll, PaginateDesigner, CollectionArray, featuresNameArray, exclusiveNameArray) {
 
 	var self = this;
 	self.scrollTo = function(id) {
@@ -14,65 +14,62 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 	self.scrollToDesigner = function() {
      var newHash = "des" + self.designerId;
       if ($location.hash() !== newHash) {
-        // set the $location.hash to `newHash` and
-        // $anchorScroll will automatically scroll to it
         $location.hash("des" + self.designerId);
       } else {
-        // call $anchorScroll() explicitly,
-        // since $location.hash hasn't changed
         $anchorScroll();
       }
    	}
 
    	self.styles;
-   	self.designerNames = designersNameArray
+   	self.featureDesignerNames = featuresNameArray;
+   	self.exclusiveDesignerNames = exclusiveNameArray;
    	self.setValueArrays = true;
-   	self.designerList;
+   	self.featureDesignerList;
+   	self.exclusiveDesignerList;
    	self.designersArray;
    	self.setArray = function(){
 		if(self.setValueArrays === true) {
 			self.designersArray = new DesignerListFactory(CollectionArray);
-			self.designerList = self.designersArray.removeJude();
-			// console.log(self.designerList);
+			self.featureDesignerList = self.designersArray.onlyFeature();
+			self.exclusiveDesignerList = self.designersArray.onlyExclusive();
 
 		}
 	};
 
 	self.setArray();
-   	// self.mainCollection = CollectionArray;
-   	// self.justJude = JudeArray;
-	self.imageToBeViewed = false;
-	self.designerFullImages;
-	self.designerImages;
+	self.viewFeatured = false;
+	self.viewExclusive = false;
 	self.mainHtml = true;
 	self.selectedImage;
 	self.clickedThumbNail = false;
-	self.current_page = 1;
+	self.feature_page = 1;
+	self.exclusive_page = 1;
 	self.records_per_page = 9;
-	self.numPages;
-	self.displayPages;
-	self.currentDesigner;
-	self.designerId;
-	self.notJude = false;
-	self.yesJude = true;
-	self.designerName = "Jude Jowilson";
-	self.galleryDesignerName;
-	self.viewGallery = function(designer, page, judeOrNot) {
-			if(judeOrNot) {
-				self.setValueArrays = false;
-				self.designersArray = new DesignerListFactory(CollectionArray);
-				self.designerList = self.designersArray.justJude();
-			}
-		self.galleryDesignerName = designer;
-		console.log(self.galleryDesignerName);
-		self.designerFullImages = self.designersArray.viewDesignerGallery(designer);
-		self.designerImages = PaginateDesigner.PaginateDesignerFunction(designer, page);
-		self.paged = page;
-		self.currentDesigner = designer;
-		self.numPages = Math.ceil(self.designerFullImages.length / self.records_per_page);
+	self.featureDesigner;
+	self.exclusiveDesigner;
+	self.featureDesignerName;
+	self.exclusiveDesignerName;
+	self.featureSelected = "feature";
+	self.exclusiveSelected = "exclusive";
+	self.viewGallery = function(designer, page, featureOrExclusive) {
+		if(featureOrExclusive === "feature"){
+			self.viewFeatured = true;
+			self.featureImages = PaginateDesigner.PaginateDesignerFunction(designer, page);
+			self.featureDesignerName = designer;
+			self.featureFullImages = self.designersArray.viewDesignerGallery(designer);
+			self.featurePages = Math.ceil(self.featureFullImages.length / self.records_per_page);
+			self.featureDesigner = designer;
+
+		} else if (featureOrExclusive === "exclusive"){
+			self.viewExclusive = true;
+			self.exclusiveImages = PaginateDesigner.PaginateDesignerFunction(designer, page);
+			self.exclusiveDesignerName = designer;
+			self.exclusiveFullImages = self.designersArray.viewDesignerGallery(designer);
+			self.exclusivePages = Math.ceil(self.exclusiveFullImages.length / self.records_per_page);
+			self.exclusiveDesigner = designer;
+		}
 		self.imageToBeViewed = true;
 		self.mainHtml = false;
-		self.designerId = designer;
 	};
 
 	self.closeDesignerImageGallery = function(designer) {
@@ -96,20 +93,37 @@ angular.module('CollectionImageGallery', ['DesignerService', 'DesignerValue'])
 		self.imageToBeViewed = true;
 	}
 
-	self.prevPage = function(designer, array) {
+	self.prevPage = function(featureOrExclusive, designer, array) {
+		if(featureOrExclusive === "feature"){
+		    if (self.feature_page > 1) {
+		        self.feature_page--;
+		        self.featureImages = PaginateDesigner.PaginateDesignerFunction(designer, self.feature_page, array);
+		    }
+
+		} else if (featureOrExclusive === "exclusive"){
+			if (self.exclusive_page > 1) {
+		        self.exclusive_page--;
+		        self.exclusiveImages = PaginateDesigner.PaginateDesignerFunction(designer, self.exclusive_page, array);
+		    }
+		}
 		self.thisDesigner = designer;
-	    if (self.current_page > 1) {
-	        self.current_page--;
-	        self.designerImages = PaginateDesigner.PaginateDesignerFunction(designer, self.current_page, array);
-	    }
+
 	}
 
-	self.nextPage = function(designer, array) {
+	self.nextPage = function(featureOrExclusive, designer, array) {
 		self.thisDesigner = designer;
-	    if (self.current_page < self.numPages) {
-	        self.current_page++;
-	        self.designerImages = PaginateDesigner.PaginateDesignerFunction(designer, self.current_page, array);
-	    }
+	    if(featureOrExclusive === "feature"){
+		    if (self.feature_page < self.featurePages) {
+		        self.feature_page++;
+		        self.featureImages = PaginateDesigner.PaginateDesignerFunction(designer, self.feature_page, array);
+		    }
+
+		} else if (featureOrExclusive === "exclusive"){
+			if (self.exclusive_page < self.exclusivePages) {
+		        self.exclusive_page++;
+		        self.exclusiveImages = PaginateDesigner.PaginateDesignerFunction(designer, self.exclusive_page, array);
+		    }
+		}
 	}
 
 })
